@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询代理商</title>
+    <script src="{{ static_url("layui/layui.js") }}"></script>
+    <link rel="stylesheet" href="{{ static_url("layui/css/layui.css") }}">
+    <script src="{{ static_url("js/form.js") }}"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+    layui.use('laydate', function(){
+      var laydate = layui.laydate;
+      
+      laydate.render({
+        elem: '#starttime' //指定元素
+      });
+    });
+    </script>
+
+</head>
+<body class="layui-layout-body">
+<div style="padding-top: 15px; padding-bottom: 15px">
+<span class="layui-breadcrumb">
+  <a href="">代理商管理</a>
+  <a><cite>查询代理商</cite></a>
+</span>
+    <hr class="layui-bg-green">
+</div>
+<div style="min-width:200px; max-width:800px; text-align:center; margin:auto;">
+<form class="layui-form layui-form-pane" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label">代理商简称</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">代理商号</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">代理商状态</label>
+        <div class="layui-input-block">
+            <select name="city" lay-verify="required">
+                <option value=""></option>
+                <option value="0">上线</option>
+                <option value="1">关闭</option>
+                <option value="2">暂停</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属销售</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">起始时间</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" class="layui-input" id="starttime">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">查询代理商</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+</div>
+</body>
+</html>

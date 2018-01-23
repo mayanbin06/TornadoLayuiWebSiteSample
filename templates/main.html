@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>91卡哥</title>
+    <link rel="stylesheet" href="{{ static_url("layui/css/layui.css") }}">
+
+    <script src="{{ static_url("layui/layui.js") }}"></script>
+    <script src="{{ static_url("js/index.js") }}"></script>
+    <script src="{{ static_url("js/form.js") }}"></script>
+    <script src="{{ static_url("js/common.js") }}"></script>
+
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style rel="stylesheet" type="text/css">
+        .layui-tab-title li:first-child > i {
+            display: none;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header ">
+        <div class="layui-logo">
+            <i class="layui-icon" style="font-size: 26px; color: #1E9FFF;">&#xe857;</i>
+            91卡哥后台管理系统
+        </div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item">
+                <a href="">控制台</a>
+            </li>
+            <li class="layui-nav-item"><a href="">商品管理</a></li>
+            <li class="layui-nav-item"><a href="">用户</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;">邮件管理</a></dd>
+                    <dd><a href="javascript:;">消息管理</a></dd>
+                    <dd><a href="javascript:;">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">控制台<span class="layui-badge">9</span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">个人中心<span class="layui-badge-dot"></span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">关于系统</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    大宝哥
+                </a>
+                <dl class="layui-nav-child">
+                    <dd id="userInfo" onclick="showUserInfo()"><a href="javascript:;">基本资料</a></dd>
+                    <dd><a href="javascript:;">安全设置</a></dd>
+                    <dd><a href="/logout">退出</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="left-menu">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;"><i class="layui-icon" style="margin-right: 5px">&#xe620;</i>代理商管理</a>
+                    <dl class="layui-nav-child">
+                        <dd id="S001" name="queryAgent"><a href="javascript:;">代理商信息</a></dd>
+                        <dd id="S002" name="addAgent"><a href="javascript:;">代理商新增</a></dd>
+                        <dd id="S003" name=""><a href="javascript:;">代理商配置修改</a></dd>
+                        <dd id="S004" name=""><a href="javascript:;">代理商三级分销配置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="layui-icon" style="margin-right: 5px">&#xe620;</i>客户管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">客户信息</a></dd>
+                        <!--<dd><a href="javascript:;">列表二</a></dd>-->
+                        <!--<dd><a href="">超链接</a></dd>-->
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="layui-icon" style="margin-right: 5px">&#xe620;</i>产品管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">信用卡申请</a></dd>
+                        <dd><a href="javascript:;">借贷</a></dd>
+                        <dd><a href="javascript:;">无卡</a></dd>
+                        <dd><a href="javascript:;">还款</a></dd>
+                        <dd><a href="javascript:;">征信</a></dd>
+                        <dd><a href="javascript:;">催收</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="layui-icon" style="margin-right: 5px">&#xe620;</i>资讯公告</a>
+                    <dl class="layui-nav-child">
+                        <dd id="N001" name="notice"><a href="javascript:;">最新资讯</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="layui-icon" style="margin-right: 5px">&#xe620;</i>O单管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="layui-icon" style="margin-right: 5px">&#xe620;</i>结算对账</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">报表统计</a></dd>
+                        <dd><a href="javascript:;">报表下载</a></dd>
+                        <dd><a href="javascript:;">分润结算操作</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        layui.use(['carousel', 'form'], function(){
+            var carousel = layui.carousel
+            ,form = layui.form;
+  
+            //常规轮播
+            carousel.render({
+            elem: '#test1'
+            ,arrow: 'always'
+            });
+        });
+    </script>
+    <div class="layui-body" style="bottom: 0px;">
+        <div style="padding-left: 15px">
+            <!-- 内容主体区域 -->
+            <div class="layui-tab" lay-allowClose="true" lay-filter="tab-switch">
+                <ul class="layui-tab-title">
+                    <li class="layui-this" >首页</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <iframe src='notice' width="100%" height=500px frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no">
+                    </div> 
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

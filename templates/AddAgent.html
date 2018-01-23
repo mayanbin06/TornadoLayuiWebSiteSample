@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <link rel="stylesheet" href="{{ static_url("layui/css/layui.css") }}">
+    <script src="{{ static_url("layui/layui.js") }}"></script>
+    <script src="{{ static_url("js/form.js") }}"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="layui-layout-body">
+<div style="padding-top: 15px; padding-bottom: 15px">
+<span class="layui-breadcrumb">
+  <a href="">代理商管理</a>
+  <a><cite>新增用户</cite></a>
+</span>
+    <hr class="layui-bg-green">
+</div>
+<div style="min-width:200px; max-width:800px; text-align:center; margin:auto;">
+<form class="layui-form layui-form-pane"  action="AddAgent" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">代理商名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="AgentName" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">代理商简称</label>
+        <div class="layui-input-block">
+            <input type="text" name="AgentSubName" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">公司注册名</label>
+        <div class="layui-input-block">
+            <input type="text" name="AgentCompanyName" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">公司注册号</label>
+        <div class="layui-input-block">
+            <input type="text" name="AgentCompanyNums" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">税务登记号</label>
+        <div class="layui-input-block">
+            <input type="text" name="AgentCompanyTex" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">工商注册地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="AgentCompanyAddr" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">公司性质</label>
+        <div class="layui-input-block">
+            <select name="AgentCompanyType" lay-verify="required">
+                <option value=""></option>
+                <option value="0">国有企业</option>
+                <option value="1">集体企业</option>
+                <option value="2">联营企业</option>
+                <option value="3">股份制合作企业</option>
+                <option value="4">私营企业</option>
+                <option value="4">个体户企业</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">注册资本(万)</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">法人代表</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系人</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系电话</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">结算账户名</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">结算银行所属地区</label>
+        <div class="layui-input-inline">
+            <select name="city" lay-verify="required">
+                <option value=""></option>
+                <option value="0">北京</option>
+                <option value="1">上海</option>
+                <option value="2">广州</option>
+                <option value="3">深圳</option>
+                <option value="4">杭州</option>
+            </select>
+        </div>
+
+        <div class="layui-input-inline">
+            <select name="city_bank" lay-verify="required">
+                <option value=""></option>
+                <option value="0">北京</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">结算账户号</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">结算银行</label>
+        <div class="layui-input-block">
+            <select name="city" lay-verify="required">
+                <option value=""></option>
+                <option value="0">工商银行</option>
+                <option value="1">招商银行</option>
+                <option value="2">农业银行</option>
+                <option value="3">光大银行</option>
+                <option value="4">中信银行</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">结算类型</label>
+        <div class="layui-input-block">
+            <select name="city" lay-verify="required">
+                <option value=""></option>
+                <option value="0">对公</option>
+                <option value="1">对私</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系邮箱</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">操作员号</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属销售</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder=" " autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">备注信息</label>
+        <div class="layui-input-block">
+            <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="AddAgentForm">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+</div>
+</body>
+</html>
